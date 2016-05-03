@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Prediction: Coursera Data Science Capstone Project</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Word Prediction: Coursera Data Science Capstone Project">
+  <meta name="author" content="Amit Pokhrel">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Word Prediction: Coursera Data Science Capstone Project</h1>
+    <h2></h2>
+    <p>Amit Pokhrel<br/>Data Scientist</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><small>The Coursera Data Science Specialization Capstone project from Johns Hopkins University (JHU) allows 
+students to create a usable public data product that can show their skills to potential 
+employers. For this iteration of the class, JHU partnered with SwiftKey 
+(<a href="http://swiftkey.com/en/">http://swiftkey.com/en/</a>) to apply data science in the area of <strong>natural language processing</strong>.</p>
+
+<p>The objective of this project was to build a working predictive text model. The data used in the 
+model came from a <strong>corpus</strong> called HC Corpora (<a href="http://www.corpora.heliohost.org">www.corpora.heliohost.org</a>). A corpus is body of text, 
+usually containing a large number of sentences. [1]</p>
+
+<p><small>[1] <a href="http://desilinguist.org/pdf/crossroads.pdf">http://desilinguist.org/pdf/crossroads.pdf</a></small></small></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id1" style="background:;">
+  <hgroup>
+    <h2>Algorithm Development</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><small>The algorithm developed to predict the next word in a user-entered text string was based on a 
+classic <strong>N-gram</strong> model. [2] Using a subset of cleaned data from blogs, twitter, and news 
+Internet files, <strong>Maximum Likelihood Estimation</strong> (MLE) of unigrams, bigrams, and trigrams were computed.</p>
+
+<p>To improve accuracy, <strong>Jelinek-Mercer smoothing</strong> was used in the algorithm, combining 
+trigram, bigram, and unigram probabilities. [3] Where interpolation failed, 
+<strong>part-of-speech tagging</strong> (POST) was employed to provide default predictions by part of 
+speech. [4] Suggested word completion was based on the unigrams. A profanity filter was also utilized 
+on all output using Google&#39;s bad words list. [5]</p>
+
+<p><small>[2] <a href="http://en.wikipedia.org/wiki/N-gram">http://en.wikipedia.org/wiki/N-gram</a></small><br>
+<small>[3] <a href="http://www.ee.columbia.edu/%7Estanchen/papers/h015l.final.pdf">http://www.ee.columbia.edu/~stanchen/papers/h015l.final.pdf</a></small><br>
+<small>[4] <a href="http://en.wikipedia.org/wiki/Part-of-speech_tagging">http://en.wikipedia.org/wiki/Part-of-speech_tagging</a></small><br>
+<small>[5] <a href="https://badwordslist.googlecode.com/files/badwords.txt">https://badwordslist.googlecode.com/files/badwords.txt</a></small></small><br></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id2" style="background:;">
+  <hgroup>
+    <h2>The Shiny Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><small>Using the algorithm, a Shiny (<a href="http://shiny.rstudio.com/">http://shiny.rstudio.com/</a>) application was developed that accepts a 
+phrase as input, suggests word completion from the unigrams, and predicts the most likely next word based 
+on the linear interpolation of trigrams, bigrams, and unigrams. The web-based application can be found 
+<a href="https://dhashman.shinyapps.io/ds_capstone/"> here</a>. The source files for this application, 
+the data creation, and this presentation can be found 
+<a href="https://github.com/dhashman/datasciencecapstone"> here</a>. 
+Below is an image of what the user interface looks like.</small></p>
+
+<p><img src="cap.jpg" alt="alt text"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id3" style="background:;">
+  <hgroup>
+    <h2>Using the Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><small>Use of the application is straightforward and can be easily adapted to many educational and 
+commercial uses. As depicted below, the user begins just by typing some text without punctuation in 
+the supplied input box. As the user types, the text is echoed in the 
+field below along with a suggested word completion. At the bottom of the screen, the 
+predicted next word in the phrase is shown.</small></p>
+
+<p><img src="capstoneUsing.jpg" alt="alt text"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Algorithm Development'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Shiny Application'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Using the Application'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
